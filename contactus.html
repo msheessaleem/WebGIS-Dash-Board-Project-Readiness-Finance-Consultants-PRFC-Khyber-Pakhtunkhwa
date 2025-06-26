@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - PRFC KPK</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .neon-glow {
+      box-shadow: 0 0 15px rgba(0, 136, 255, 0.6), 0 0 30px rgba(0, 136, 255, 0.4);
+    }
+    @keyframes soft-blink {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 10px rgba(0, 136, 255, 0.2); }
+      50% { transform: scale(1.02); box-shadow: 0 0 20px rgba(0, 136, 255, 0.5); }
+    }
+    .hover-blink:hover {
+      animation: soft-blink 1.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-tr from-sky-50 to-blue-100 text-slate-800 leading-relaxed tracking-wide">
+
+  <header class="bg-white/70 backdrop-blur-md py-6 px-8 shadow-md sticky top-0 z-50 hover:shadow-xl transition-all duration-500">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-blue-800 drop-shadow hover:scale-105 transition-all duration-300">PRFC KPK</h1>
+      <nav>
+        <a href="index.html" class="text-blue-600 hover:text-blue-900 font-medium transition-all duration-300 hover:scale-110 hover:animate-pulse">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="max-w-6xl mx-auto bg-white p-12 my-16 rounded-[2rem] shadow-2xl shadow-blue-200 border border-blue-100 backdrop-blur-lg neon-glow hover:scale-[1.01] transition-transform duration-500">
+    <h1 class="text-5xl font-extrabold text-center text-blue-900 mb-12 tracking-tight hover:animate-pulse">Contact Us</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <!-- Updated Contact Info -->
+      <div class="space-y-6 text-lg">
+        <div>
+          <h2 class="text-2xl font-bold text-blue-800 mb-2">Head Office</h2>
+          <p>National Engineering Services Pakistan (Pvt.) Ltd.</p>
+          <p>Nespak House, 1-C, Block-N Model Town Extension</p>
+          <p>GPO Box: 1351, Lahore, Pakistan 54700</p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-blue-800 mb-2">Phone</h2>
+          <p>(92 42) 99090000</p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-blue-800 mb-2">Fax</h2>
+          <p>(92 42) 99231950</p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-blue-800 mb-2">Email</h2>
+          <p>info@nespak.com.pk</p>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-blue-800 mb-2">Website</h2>
+          <a href="https://www.nespak.com.pk" target="_blank" class="text-blue-600 hover:underline">www.nespak.com.pk</a>
+        </div>
+        <div>
+          <h2 class="text-2xl font-bold text-blue-800 mb-2">Business Hours</h2>
+          <p>Monday - Friday: 9:00 AM to 5:00 PM</p>
+        </div>
+      </div>
+
+      <!-- Updated Google Map -->
+      <div>
+       <iframe 
+  class="rounded-2xl w-full h-80 shadow-lg hover:scale-105 transition-all duration-500 hover-blink"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13615.9169982936!2d74.29895555!3d31.4736248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391903ff6942d531%3A0x46a36506b96ec2a1!2sNespak%20House!5e0!3m2!1sen!2s!4v1718750484981!5m2!1sen!2s"
+  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="index.html" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-semibold px-8 py-3 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:animate-pulse">← Back to Home</a>
+    </div>
+  </section>
+
+  <footer class="text-center text-sm text-slate-600 pb-6 hover:scale-105 transition duration-300">
+    &copy; 2025 PRFC KPK. All rights reserved.
+  </footer>
+
+</body>
+</html>

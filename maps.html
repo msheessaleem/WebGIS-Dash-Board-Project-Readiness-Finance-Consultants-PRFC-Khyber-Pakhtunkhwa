@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRFC Maps Viewer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .neon-glow {
+      box-shadow: 0 0 15px rgba(0, 136, 255, 0.5), 0 0 30px rgba(0, 136, 255, 0.3);
+    }
+    .scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(0, 136, 255, 0.5);
+      border-radius: 6px;
+    }
+    .glow-hover:hover {
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.6), 0 0 20px rgba(59, 130, 246, 0.4);
+      transform: scale(1.02);
+      transition: all 0.3s ease-in-out;
+    }
+    .fade-in {
+      animation: fadeIn 0.6s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-blue-50 to-blue-100 text-slate-800">
+  <div class="flex flex-col md:flex-row h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-full md:w-72 bg-white/80 backdrop-blur-md border-b md:border-b-0 md:border-r border-blue-200 p-4 overflow-y-auto scrollbar neon-glow fade-in">
+      <h1 class="text-2xl font-extrabold text-center text-blue-700 mb-6 tracking-tight">🗘️ Map Selector</h1>
+
+      <!-- PMC Maps Dropdown -->
+      <div x-data="{ open: false }" class="mb-8">
+        <h2 @click="open = !open" class="cursor-pointer text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-800 px-3 py-2 rounded-lg shadow-inner flex justify-between items-center">
+          PMC Maps <span x-text="open ? '▲' : '▼'" class="text-sm"></span>
+        </h2>
+        <div x-show="open" x-transition x-cloak class="mt-3 max-h-64 overflow-y-auto pr-1 scrollbar">
+          <ul class="flex flex-col gap-3">
+            <li><button onclick="showMap('ALC-PMC-March-2022-Rabbi.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-PMC-March-2022-Rabi</button></li>
+            <li><button onclick="showMap('ALC-PMC-March-2023-Rabi.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-PMC-March-2023-Rabi</button></li>
+            <li><button onclick="showMap('ALC-PMC-March-2024-Rabbi.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-PMC-March-2024-Rabi</button></li>
+            <li><button onclick="showMap('ALC-PMC-October-2021-Kharif.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-PMC-October-2021-Kharif</button></li>
+            <li><button onclick="showMap('ALC-PMC-October-2022-Kharif.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-PMC-October-2022-Kharif</button></li>
+            <li><button onclick="showMap('ALC-PMC-October-2023-Kharif.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-PMC-October-2023-Kharif</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Mulkhow Maps Dropdown -->
+      <div x-data="{ open: false }">
+        <h2 @click="open = !open" class="cursor-pointer text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-800 px-3 py-2 rounded-lg shadow-inner flex justify-between items-center">
+          Mulkhow Maps <span x-text="open ? '▲' : '▼'" class="text-sm"></span>
+        </h2>
+        <div x-show="open" x-transition x-cloak class="mt-3 max-h-64 overflow-y-auto pr-1 scrollbar">
+          <ul class="flex flex-col gap-3">
+            <li><button onclick="showMap('ALC-Mulkhow-May-2021-Rabi.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-Mulkhow-May-2021-Rabi</button></li>
+            <li><button onclick="showMap('ALC-Mulkhow-May-2022-Rabi.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-Mulkhow-May-2022-Rabi</button></li>
+            <li><button onclick="showMap('ALC-Mulkhow-May-2023-Rabi.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-Mulkhow-May-2023-Rabi</button></li>
+            <li><button onclick="showMap('ALC-Mulkhow-May-2024-Rabi.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-Mulkhow-May-2024-Rabi</button></li>
+            <li><button onclick="showMap('ALC-Mulkhow-Sep-2021-Kharif.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-Mulkhow-Sep-2021-Kharif</button></li>
+            <li><button onclick="showMap('ALC-Mulkhow-Sep-2022-Kharif.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-Mulkhow-Sep-2022-Kharif</button></li>
+             <li><button onclick="showMap('ALC-Mulkhow-Sep-2023-Kharif.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-Mulkhow-Sep-2023-Kharif</button></li>
+            <li><button onclick="showMap('ALC-Mulkhow-Sep-2024-Kharif.jpg')" class="glow-hover bg-blue-100 hover:bg-blue-200 px-4 md:px-12 py-2 text-left rounded-lg text-sm font-medium">📍 ALC-Mulkhow-Sep-2024-Kharif</button></li>
+         
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Display -->
+    <main class="flex-1 flex flex-col items-center justify-center bg-white p-4 md:p-6 fade-in overflow-auto">
+      <div id="mapContainer" class="relative w-full h-full max-w-5xl max-h-[90vh] flex items-center justify-center text-center text-slate-500 border-4 border-blue-200 rounded-3xl shadow-2xl">
+        <p id="defaultText" class="text-xl animate-pulse">🛍️ Select a map from the sidebar to display it here</p>
+        <img id="mapImage" src="" alt="Map" class="hidden w-full h-auto max-h-full rounded-xl shadow-xl border border-blue-300 transition-all duration-300 object-contain" />
+        <!-- Floating Download Button -->
+        <a id="downloadBtn" href="#" download 
+           class="hidden absolute top-4 right-4 bg-blue-600 text-white text-xs px-3 py-2 rounded-md shadow-md hover:bg-blue-700 transition"
+           title="Download Map">
+          ⬇️
+        </a>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    function showMap(filename) {
+      const mapImg = document.getElementById("mapImage");
+      const defaultText = document.getElementById("defaultText");
+      const downloadBtn = document.getElementById("downloadBtn");
+
+      mapImg.src = filename;
+      mapImg.classList.remove("hidden");
+      defaultText.style.display = "none";
+
+      // Update and show download button
+      downloadBtn.href = filename;
+      downloadBtn.classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>

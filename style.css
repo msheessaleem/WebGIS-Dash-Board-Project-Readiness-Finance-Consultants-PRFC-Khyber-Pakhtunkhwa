@@ -1,0 +1,296 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5vw; /* Responsive padding */
+    border-radius: 20px;
+
+    /* Glassy, futuristic background */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    /* Glowing bottom border */
+    border-bottom: 2px solid rgba(0, 255, 255, 0.5);
+    box-shadow: 
+        0 4px 12px rgba(0, 255, 255, 0.2),
+        inset 0 0 8px rgba(0, 255, 255, 0.1);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        text-align: center;
+    }
+}
+header:hover {
+    box-shadow:
+        0 0 20px rgba(0, 255, 255, 0.4),
+        inset 0 0 12px rgba(0, 255, 255, 0.2);
+    border-bottom: 2px solid rgba(0, 255, 255, 0.8);
+}
+
+
+/* Optional hover interaction */
+header:hover {
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);     /* Stronger shadow on hover */
+    cursor: default;
+}
+/* ===== Main Logo (e.g. left side) ===== NESPAK LOGO */
+.logo img,
+.gov-logo img {
+    height: 60px;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); /* Subtle neon glow */
+}
+@media (max-width: 480px) {
+  .logo img,
+  .gov-logo img {
+    height: 40px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .logo img,
+  .gov-logo img {
+    height: 50px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .logo img,
+  .gov-logo img {
+    height: 60px;
+  }
+}
+
+@media (min-width: 1201px) {
+  .logo img,
+  .gov-logo img {
+    height: 70px;
+  }
+}
+/* ===== Government Logo (e.g. right side) ===== KPK GOVT. LOGO  */
+/* Futuristic glow ring using ::before */
+/* MAIN LOGO */
+.logo img,
+.gov-logo img {
+    width: 12vw; /* Responsive width based on viewport */
+    max-width: 80px; /* Limits size on large screens */
+    min-width: 40px; /* Prevents getting too small on tiny screens */
+    height: auto;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+/* GLOW EFFECT — RESPONSIVE */
+.logo img::before,
+.gov-logo img::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    background: linear-gradient(135deg, #00f0ff, #0077ff, #00f0ff);
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.logo img:hover,
+.gov-logo img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.15);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.logo img:hover::before,
+.gov-logo img:hover::before {
+    opacity: 1;
+}
+@media (max-width: 480px) {
+    .logo img,
+    .gov-logo img {
+        width: 14vw;
+        max-width: 60px;
+    }
+}
+
+/* Show futuristic glow on hover */
+.logo img:hover::before,
+.gov-logo img:hover::before {
+    opacity: 1;
+}
+
+.title h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: bold;
+    color: #004080;                /* Rich blue tone */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Modern font */
+    letter-spacing: 1px;           /* Slight space between letters */
+    background: linear-gradient(to right, #66ccff, #003366);  /* Gradient text effect */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease, color 0.3s ease;  /* Smooth animation */
+    cursor: pointer;               /* Shows it's interactive */
+}
+
+/* Optional hover effect */
+.title h1:hover {
+    transform: scale(1.05);        /* Slight zoom effect on hover */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.highlight {
+    color: #800000;
+    text-decoration: underline;
+}
+
+.menu {
+    display: flex;
+    gap: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #1f2937;                           /* Dark slate color for better readability */
+    padding: 14px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #e0f7fa, #b2ebf2); /* Aqua gradient */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    background: linear-gradient(to right, #00c6ff, #0072ff);  /* Bold blue gradient */
+    color: white;
+    transform: translateY(-2px) scale(1.05);   /* Pop up effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+main {
+    display: flex;
+    justify-content: space-between; /* Push children to the edges */
+    align-items: flex-start;
+    padding: 30px 50px; /* Add some side padding */
+    flex-wrap: wrap;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 450px;
+    flex-shrink: 4;
+}
+
+.profile {
+    background: linear-gradient(to bottom right, #ffffff, #e6f2ff);
+    border: 2px solid #0077cc;
+    width: 100%;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 119, 204, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 119, 204, 0.3);
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid #0077cc;
+}
+
+.name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 5px;
+}
+
+.role {
+    font-size: 18px;
+    font-weight: 600;
+    color: #005599;
+    margin-bottom: 5px;
+}
+
+.designation {
+    font-size: 20px;
+    font-weight: 500;
+    color: #0088cc;
+    margin-bottom: 12px;
+}
+
+.message {
+    font-size: 16px;
+    color: #2c3e50;
+    line-height: 1.8;
+    background-color: #f0f8ff;
+    padding: 12px 16px;
+    border-left: 5px solid #0481db;
+    border-radius: 10px;
+    margin-top: 8px;
+    position: relative;
+    font-style: italic;
+    box-shadow: inset 0 0 5px rgba(0, 119, 204, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.message::before {
+    content: "“";
+    font-size: 30px;
+    color: #0077cc;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.message:hover {
+    background-color: #e6f2ff;
+}
+
+
